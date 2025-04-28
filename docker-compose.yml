@@ -9,7 +9,7 @@ services:
   image: basavaraj0509/mysql:v1
   container_name: mysql # --name mysql
   volumes: 
-   - mysql: /var/lib/mysql # -v mysql: /var/lib/mysql
+   - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
  
  backend:
   image: basavaraj0509/backend:v1
