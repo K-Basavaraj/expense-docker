@@ -1,6 +1,6 @@
 #mutlistage usage: what ever the cache getting from npm install we can save memory.
 #this env is going to delete once its done part and send the output to 2nd file
-FROM node:20 as builder
+FROM node:20 AS builder
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
