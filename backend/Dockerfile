@@ -10,10 +10,23 @@
 # RUN npm install 
 # CMD ["node", "index.js"]
 
-# 2nd Best practices implemented Hostnetwork(localhost)
+# # 2nd Best practices implemented Hostnetwork(localhost)
+# FROM node:20
+# #why because we have two services in the server it is for host network
+# ENV DB_HOST="localhost" 
+# EXPOSE 8080
+# RUN mkdir /opt/server
+# WORKDIR /opt/server
+# COPY package.json .
+# COPY *.js .
+# RUN npm install 
+# CMD ["node", "index.js"]
+
+
+# 3rd Best practices implemented using (custom_network_host)
 FROM node:20
 #why because we have two services in the server it is for host network
-ENV DB_HOST="localhost" 
+ENV DB_HOST="mysql" 
 EXPOSE 8080
 RUN mkdir /opt/server
 WORKDIR /opt/server
