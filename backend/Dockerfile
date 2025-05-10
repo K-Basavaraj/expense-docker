@@ -1,7 +1,20 @@
-#1st Best Practice
+# #1st Best Practice implimented bridgenetwork(default)
+# FROM node:20
+# EXPOSE 8080
+#it become bridge network which container network
+# ENV DB_HOST="mysql" 
+# RUN mkdir /opt/server
+# WORKDIR /opt/server
+# COPY package.json .
+# COPY *.js .
+# RUN npm install 
+# CMD ["node", "index.js"]
+
+# 2nd Best practices implemented Hostnetwork(localhost)
 FROM node:20
+#why because we have two services in the server it is for host network
+ENV DB_HOST="localhost" 
 EXPOSE 8080
-ENV DB_HOST="mysql" 
 RUN mkdir /opt/server
 WORKDIR /opt/server
 COPY package.json .
