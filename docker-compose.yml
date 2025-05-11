@@ -1,6 +1,8 @@
 version: '3'
+# Networks section to define the custom network "expense"
 networks:
  expense:
+# Volumes section to create persistent storage for MySQL
 volumes:
  mysql:  #docker volume create mysql
 
@@ -25,4 +27,11 @@ services:
    - 80:80
   depends_on:
    - backend
+
+# If we don't explicitly define the network, Docker Compose will create a default network with a name 
+# in the format of <project_name>_<network_name>, for example "expense-docker_default". This can lead to 
+# inconsistencies when using multiple Compose files or in different environments.
+# Explicitly defining the "expense" network ensures a consistent and isolated network named "expense" 
+# that all services (frontend, backend, mysql) can communicate over.
+
 
