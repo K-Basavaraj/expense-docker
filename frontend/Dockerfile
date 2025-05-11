@@ -10,7 +10,7 @@
 
 
 
-#2nd Best practices implemented using (custom_network_host)
+#2nd Best practices implemented using (custom_network_host) you should expose port -p 80:80
 FROM nginx 
 COPY code /usr/share/nginx/html
 RUN rm -rf /etc/nginx/nginx.conf
