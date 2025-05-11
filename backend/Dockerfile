@@ -36,12 +36,26 @@
 # CMD ["node", "index.js"]
 
 #4th Best Practices to reduce the size of the image and create expense user 
+# FROM node:20.19.1-alpine3.21
+# ENV DB_HOST="mysql" 
+# EXPOSE 8080
+# RUN addgroup -S expense && adduser -S expense -G expense
+# RUN mkdir /opt/server
+# RUN chown -R expense:expense /opt/server
+# WORKDIR /opt/server
+# COPY package.json .
+# COPY *.js .
+# RUN npm install 
+# USER expense
+# CMD ["node", "index.js"]
+
+#5th Best Practices same as above there is taking much time to create, we can reduce the time by reducing the layers.
 FROM node:20.19.1-alpine3.21
 ENV DB_HOST="mysql" 
 EXPOSE 8080
-RUN addgroup -S expense && adduser -S expense -G expense
-RUN mkdir /opt/server
-RUN chown -R expense:expense /opt/server
+RUN addgroup -S expense && adduser -S expense -G expense && \
+    mkdir /opt/server && \
+    chown -R expense:expense /opt/server
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
