@@ -40,8 +40,8 @@ FROM node:20.19.1-alpine3.21
 ENV DB_HOST="mysql" 
 EXPOSE 8080
 RUN addgroup -S expense && adduser -S expense -G expense
-RUN chown -R expense:expense /opt/server
 RUN mkdir /opt/server
+RUN chown -R expense:expense /opt/server
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
