@@ -8,7 +8,7 @@ echo "Downloading kubectl..."
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
 
 # Make kubectl executable
-chmod +x ./kubectl
+sudo chmod +x ./kubectl
 
 # Move kubectl to /usr/local/bin
 sudo mv ./kubectl /usr/local/bin/kubectl
