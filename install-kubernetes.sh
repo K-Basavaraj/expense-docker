@@ -23,14 +23,6 @@ else
     echo "kubectl installed successfully at $KUBECTL_PATH."
 fi
 
-# Verify kubectl installation
-if ! command -v kubectl &> /dev/null; then
-    echo "kubectl could not be installed correctly or is not in the PATH."
-    exit 1
-fi
-
-echo "kubectl installed successfully."
-
 # Verify kubectl version
 kubectl version 
 
