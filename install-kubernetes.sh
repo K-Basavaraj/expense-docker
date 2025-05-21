@@ -14,6 +14,14 @@ chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 echo "kubectl installed at /usr/local/bin/kubectl"
 
+# Verify kubectl installation
+if ! command -v kubectl &> /dev/null; then
+    echo "kubectl could not be installed correctly or is not in the PATH."
+    exit 1
+fi
+
+echo "kubectl installed successfully."
+
 # Verify kubectl version
 kubectl version 
 
