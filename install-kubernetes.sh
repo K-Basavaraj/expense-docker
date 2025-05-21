@@ -15,7 +15,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 echo "kubectl installed at /usr/local/bin/kubectl"
 
 # Verify kubectl version
-kubectl version --client
+kubectl version 
 
 # Set platform details
 ARCH=amd64
