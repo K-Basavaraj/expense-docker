@@ -3,16 +3,25 @@
 set -e  # Exit immediately on error
 set -o pipefail
 
-# Download kubectl
-echo "Downloading kubectl..."
-curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
+# Set the target path
+KUBECTL_PATH="/usr/local/bin/kubectl"
 
-# Make kubectl executable
-sudo chmod +x ./kubectl
+# Check if kubectl is already installed
+if [ -f "$KUBECTL_PATH" ]; then
+    echo "kubectl is already installed at $KUBECTL_PATH."
+else
+    # Download kubectl
+    echo "Downloading kubectl..."
+    curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
 
-# Move kubectl to /usr/local/bin
-sudo mv ./kubectl /usr/local/bin/kubectl
-echo "kubectl installed at /usr/local/bin/kubectl"
+    # Make kubectl executable
+    sudo chmod +x ./kubectl
+
+    # Move kubectl to /usr/local/bin
+    sudo mv ./kubectl /usr/local/bin/kubectl
+
+    echo "kubectl installed successfully at $KUBECTL_PATH."
+fi
 
 # Verify kubectl installation
 if ! command -v kubectl &> /dev/null; then
