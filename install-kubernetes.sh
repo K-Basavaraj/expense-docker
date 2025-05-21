@@ -5,7 +5,7 @@ set -o pipefail
 
 # Download kubectl
 echo "Downloading kubectl..."
-curl -LO https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
+curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.33.0/2025-05-01/bin/linux/amd64/kubectl
 
 # Make kubectl executable
 chmod +x ./kubectl
