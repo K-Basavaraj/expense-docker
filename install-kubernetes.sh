@@ -50,11 +50,11 @@ export PATH=$PATH:/usr/local/bin
 
 # Verify kubectl version using sudo with updated PATH
 echo "Verifying kubectl installation..."
-sudo PATH=$PATH kubectl version --client
+sudo env "PATH=$PATH" kubectl version --client
 
 # Verify eksctl version using sudo with updated PATH
 echo "Verifying eksctl installation..."
-sudo PATH=$PATH eksctl version
+sudo env "PATH=$PATH" eksctl version
 
 # Run AWS configure
 echo "Running AWS configure..."
