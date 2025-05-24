@@ -56,6 +56,3 @@ sudo env "PATH=$PATH" kubectl version --client
 echo "Verifying eksctl installation..."
 sudo env "PATH=$PATH" eksctl version
 
-# Run AWS configure
-echo "Running AWS configure..."
-aws configure
